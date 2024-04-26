@@ -1,0 +1,102 @@
+[gd_scene load_steps=13 format=3 uid="uid://b8y1hxxtygcd6"]
+
+[ext_resource type="Texture2D" uid="uid://douucp3n0f0cc" path="res://background/Layer_0000_9.png" id="1_mvdh2"]
+[ext_resource type="Texture2D" uid="uid://d34fulfofsu0d" path="res://background/Layer_0001_8.png" id="2_i4ca0"]
+[ext_resource type="Texture2D" uid="uid://ceibrouxruyvu" path="res://background/Layer_0002_7.png" id="3_npk7b"]
+[ext_resource type="Texture2D" uid="uid://dba36115av74c" path="res://background/Layer_0003_6.png" id="4_kyjnm"]
+[ext_resource type="Texture2D" uid="uid://dj68ehtsak43p" path="res://background/Layer_0004_Lights.png" id="5_rdfs1"]
+[ext_resource type="Texture2D" uid="uid://cvo4rygouoa4a" path="res://background/Layer_0005_5.png" id="6_jhc32"]
+[ext_resource type="Texture2D" uid="uid://dpgra2byo7iku" path="res://background/Layer_0006_4.png" id="7_8r7o3"]
+[ext_resource type="Texture2D" uid="uid://dxg70l1yst6mv" path="res://background/Layer_0007_Lights.png" id="8_oe4w3"]
+[ext_resource type="Texture2D" uid="uid://ctspkiptf1qm5" path="res://background/Layer_0008_3.png" id="9_yygi1"]
+[ext_resource type="Texture2D" uid="uid://b3ui3vbcghcee" path="res://background/Layer_0009_2.png" id="10_3wknr"]
+[ext_resource type="Texture2D" uid="uid://p112te2ifw2i" path="res://background/Layer_0010_1.png" id="11_7860h"]
+[ext_resource type="Texture2D" uid="uid://bxyskypmeuu54" path="res://background/Layer_0011_0.png" id="12_bw528"]
+
+[node name="Node" type="Node"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="layer0" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(540, 2.08165e-12)
+scale = Vector2(2.13362, 1.83796)
+texture = ExtResource("1_mvdh2")
+
+[node name="layer1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -1
+texture_filter = 1
+position = Vector2(540, -540)
+scale = Vector2(4.55234, 3.37809)
+texture = ExtResource("2_i4ca0")
+
+[node name="layer2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -2
+texture_filter = 1
+position = Vector2(540, 80)
+scale = Vector2(2.13362, 1.83796)
+texture = ExtResource("3_npk7b")
+
+[node name="layer3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(540, 80)
+scale = Vector2(2.13362, 1.83796)
+texture = ExtResource("4_kyjnm")
+
+[node name="layer4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(540, 80)
+scale = Vector2(2.13362, 1.83796)
+texture = ExtResource("5_rdfs1")
+
+[node name="layer5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -1
+texture_filter = 1
+position = Vector2(540, 80)
+scale = Vector2(2.13362, 1.83796)
+texture = ExtResource("6_jhc32")
+
+[node name="layer6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -5
+texture_filter = 1
+position = Vector2(540, 2.08165e-12)
+scale = Vector2(2.13362, 1.83796)
+texture = ExtResource("7_8r7o3")
+
+[node name="layer7" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -5
+texture_filter = 1
+position = Vector2(540, 2.08165e-12)
+scale = Vector2(2.13362, 1.83796)
+texture = ExtResource("8_oe4w3")
+
+[node name="layer8" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -6
+texture_filter = 1
+position = Vector2(540, 2.08165e-12)
+scale = Vector2(2.13362, 1.83796)
+texture = ExtResource("9_yygi1")
+
+[node name="layer9" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -7
+texture_filter = 1
+position = Vector2(540, 80)
+scale = Vector2(2.13362, 1.83796)
+texture = ExtResource("10_3wknr")
+
+[node name="layer10" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -8
+texture_filter = 1
+position = Vector2(540, 80)
+scale = Vector2(2.13362, 1.83796)
+texture = ExtResource("11_7860h")
+
+[node name="layer11" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -8
+texture_filter = 1
+position = Vector2(540, 80)
+scale = Vector2(2.13362, 1.83796)
+texture = ExtResource("12_bw528")
