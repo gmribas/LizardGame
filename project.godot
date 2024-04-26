@@ -22,3 +22,7 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="Lizard"
+
+[rendering]
+
+renderer/rendering_method="mobile"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b8y1hxxtygcd6"]
+[gd_scene load_steps=14 format=3 uid="uid://b8y1hxxtygcd6"]
 
 [ext_resource type="Texture2D" uid="uid://douucp3n0f0cc" path="res://background/Layer_0000_9.png" id="1_mvdh2"]
 [ext_resource type="Texture2D" uid="uid://d34fulfofsu0d" path="res://background/Layer_0001_8.png" id="2_i4ca0"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ctspkiptf1qm5" path="res://background/Layer_0008_3.png" id="9_yygi1"]
 [ext_resource type="Texture2D" uid="uid://b3ui3vbcghcee" path="res://background/Layer_0009_2.png" id="10_3wknr"]
 [ext_resource type="Texture2D" uid="uid://p112te2ifw2i" path="res://background/Layer_0010_1.png" id="11_7860h"]
+[ext_resource type="TileSet" uid="uid://xwb8uoh4gbsi" path="res://ground_tile_set.tres" id="11_e46di"]
 [ext_resource type="Texture2D" uid="uid://bxyskypmeuu54" path="res://background/Layer_0011_0.png" id="12_bw528"]
 
 [node name="Node" type="Node"]
@@ -19,6 +20,7 @@
 layer = 0
 
 [node name="background" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(2.08165e-12, 2.08165e-12)
 
 [node name="layer9" type="Sprite2D" parent="ParallaxBackground/background"]
 z_index = -7
@@ -88,18 +90,26 @@ texture = ExtResource("9_yygi1")
 [node name="ground" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(2.08165e-12, 2.08165e-12)
 
-[node name="layer0" type="Sprite2D" parent="ParallaxBackground/ground"]
-texture_filter = 1
-position = Vector2(540, 2.08165e-12)
-scale = Vector2(2.13362, 1.83796)
+[node name="weed" type="Sprite2D" parent="ParallaxBackground/ground"]
+position = Vector2(2.08165e-12, -280)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_mvdh2")
+centered = false
 
-[node name="layer1" type="Sprite2D" parent="ParallaxBackground/ground"]
+[node name="green_grass" type="Sprite2D" parent="ParallaxBackground/ground"]
 z_index = -1
 texture_filter = 1
 position = Vector2(540, -540)
 scale = Vector2(4.55234, 3.37809)
 texture = ExtResource("2_i4ca0")
+
+[node name="TileMap" type="TileMap" parent="ParallaxBackground/ground"]
+z_index = -1
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(3, 3)
+tile_set = ExtResource("11_e46di")
+format = 2
+layer_0/tile_data = PackedInt32Array(917502, 0, 47, 917503, 0, 47, 851968, 0, 47, 851969, 0, 47, 851970, 0, 47, 851971, 0, 47, 851972, 0, 47, 851973, 0, 47, 851974, 0, 47, 851975, 0, 47, 851976, 0, 47, 851977, 0, 47, 851978, 0, 47, 851979, 0, 47, 851980, 0, 47, 851981, 0, 47, 851982, 0, 47, 851983, 0, 47, 851984, 0, 47, 851985, 0, 47, 851986, 0, 47, 851987, 0, 47, 851988, 0, 47, 851989, 0, 47, 851990, 0, 47, 851991, 0, 47, 851992, 0, 47, 851993, 0, 47)
 
 [node name="tree_top" type="ParallaxLayer" parent="ParallaxBackground"]
 
