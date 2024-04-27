@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://b8y1hxxtygcd6"]
+[gd_scene load_steps=16 format=3 uid="uid://b8y1hxxtygcd6"]
 
 [ext_resource type="Texture2D" uid="uid://douucp3n0f0cc" path="res://background/Layer_0000_9.png" id="1_mvdh2"]
+[ext_resource type="PackedScene" uid="uid://df1a6vfcdch5t" path="res://scenes/virtual_guy.tscn" id="1_wc48a"]
 [ext_resource type="Texture2D" uid="uid://d34fulfofsu0d" path="res://background/Layer_0001_8.png" id="2_i4ca0"]
 [ext_resource type="Texture2D" uid="uid://ceibrouxruyvu" path="res://background/Layer_0002_7.png" id="3_npk7b"]
 [ext_resource type="Texture2D" uid="uid://dba36115av74c" path="res://background/Layer_0003_6.png" id="4_kyjnm"]
@@ -11,15 +12,17 @@
 [ext_resource type="Texture2D" uid="uid://ctspkiptf1qm5" path="res://background/Layer_0008_3.png" id="9_yygi1"]
 [ext_resource type="Texture2D" uid="uid://b3ui3vbcghcee" path="res://background/Layer_0009_2.png" id="10_3wknr"]
 [ext_resource type="Texture2D" uid="uid://p112te2ifw2i" path="res://background/Layer_0010_1.png" id="11_7860h"]
-[ext_resource type="TileSet" uid="uid://xwb8uoh4gbsi" path="res://ground_tile_set.tres" id="11_e46di"]
+[ext_resource type="TileSet" uid="uid://xwb8uoh4gbsi" path="res://tilesets/ground_tile_set.tres" id="11_e46di"]
 [ext_resource type="Texture2D" uid="uid://bxyskypmeuu54" path="res://background/Layer_0011_0.png" id="12_bw528"]
+[ext_resource type="Script" path="res://scenes/VirtualGuy.gd" id="15_rmwe4"]
 
-[node name="Node" type="Node"]
+[node name="Root" type="Node"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-layer = 0
+layer = -1
 
 [node name="background" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 motion_scale = Vector2(2.08165e-12, 2.08165e-12)
 
 [node name="layer9" type="Sprite2D" parent="ParallaxBackground/background"]
@@ -44,6 +47,7 @@ scale = Vector2(2.13362, 1.83796)
 texture = ExtResource("12_bw528")
 
 [node name="lights" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 
 [node name="layer4" type="Sprite2D" parent="ParallaxBackground/lights"]
 texture_filter = 1
@@ -109,7 +113,7 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(3, 3)
 tile_set = ExtResource("11_e46di")
 format = 2
-layer_0/tile_data = PackedInt32Array(917502, 0, 47, 917503, 0, 47, 851968, 0, 47, 851969, 0, 47, 851970, 0, 47, 851971, 0, 47, 851972, 0, 47, 851973, 0, 47, 851974, 0, 47, 851975, 0, 47, 851976, 0, 47, 851977, 0, 47, 851978, 0, 47, 851979, 0, 47, 851980, 0, 47, 851981, 0, 47, 851982, 0, 47, 851983, 0, 47, 851984, 0, 47, 851985, 0, 47, 851986, 0, 47, 851987, 0, 47, 851988, 0, 47, 851989, 0, 47, 851990, 0, 47, 851991, 0, 47, 851992, 0, 47, 851993, 0, 47)
+layer_0/tile_data = PackedInt32Array(917502, 0, 47, 917503, 0, 47, 851968, 0, 47, 851969, 0, 47, 851970, 0, 47, 851971, 0, 47, 851972, 0, 47, 851973, 0, 47, 851974, 0, 47, 851975, 0, 47, 851976, 0, 47, 851977, 0, 47, 851978, 0, 47, 851979, 0, 47, 851980, 0, 47, 851981, 0, 47, 851982, 0, 47, 851983, 0, 47, 851984, 0, 47, 851985, 0, 47, 851986, 0, 47, 851987, 0, 47, 851988, 0, 47, 851989, 0, 47, 851990, 0, 47, 851991, 0, 47, 851992, 0, 47, 851993, 0, 47, 917501, 0, 47, 851994, 0, 47, 851995, 0, 47, 851996, 0, 47, 786456, 0, 47, 720920, 0, 47, 655384, 0, 47, 589848, 0, 47, 524312, 0, 47, 458776, 0, 47, 393240, 0, 47, 327704, 0, 47, 262168, 0, 47, 196632, 0, 47, 131096, 0, 47, 65560, 0, 47, 24, 0, 47, 23, 0, 47, 22, 0, 47, 21, 0, 47, 20, 0, 47, 19, 0, 47, 18, 0, 47, 17, 0, 47, 16, 0, 47, 15, 0, 47, 14, 0, 47, 13, 0, 47, 12, 0, 47, 11, 0, 47, 10, 0, 47, 9, 0, 47, 8, 0, 47, 7, 0, 47, 6, 0, 47, 5, 0, 47, 4, 0, 47, 3, 0, 47, 2, 0, 47, 1, 0, 47, 0, 0, 47, 65535, 0, 47, 131071, 0, 47, 196607, 0, 47, 262143, 0, 47, 327679, 0, 47, 393215, 0, 47, 458751, 0, 47, 524287, 0, 47, 589823, 0, 47, 655359, 0, 47, 720895, 0, 47, 786431, 0, 47, 851967, 0, 47)
 
 [node name="tree_top" type="ParallaxLayer" parent="ParallaxBackground"]
 
@@ -119,3 +123,7 @@ texture_filter = 1
 position = Vector2(540, 80)
 scale = Vector2(2.13362, 1.83796)
 texture = ExtResource("3_npk7b")
+
+[node name="VirtualGuy" parent="." instance=ExtResource("1_wc48a")]
+position = Vector2(18, 434)
+script = ExtResource("15_rmwe4")
