@@ -190,6 +190,7 @@ animations = [{
 size = Vector2(58, 96)
 
 [node name="VirtualGuy" type="CharacterBody2D"]
+position = Vector2(40, 547)
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -203,3 +204,10 @@ frame_progress = 0.17246
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(26, 45)
 shape = SubResource("RectangleShape2D_fqy1q")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(26, 45)
+offset = Vector2(2.08165e-12, -260)
+limit_left = -100
+limit_smoothed = true
+drag_horizontal_enabled = true
