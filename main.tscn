@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b8y1hxxtygcd6"]
+[gd_scene load_steps=16 format=3 uid="uid://b8y1hxxtygcd6"]
 
 [ext_resource type="PackedScene" uid="uid://df1a6vfcdch5t" path="res://scenes/virtual_guy.tscn" id="1_wc48a"]
 [ext_resource type="Texture2D" uid="uid://d34fulfofsu0d" path="res://background/Layer_0001_8.png" id="2_i4ca0"]
@@ -11,15 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://p112te2ifw2i" path="res://background/Layer_0010_1.png" id="11_7860h"]
 [ext_resource type="TileSet" uid="uid://xwb8uoh4gbsi" path="res://tilesets/ground_tile_set.tres" id="11_e46di"]
 [ext_resource type="Texture2D" uid="uid://bxyskypmeuu54" path="res://background/Layer_0011_0.png" id="12_bw528"]
+[ext_resource type="PackedScene" uid="uid://vonf6ps58aik" path="res://scenes/collectable_kiwi.tscn" id="13_wjmct"]
+[ext_resource type="Script" path="res://game_manager.gd" id="14_inai0"]
 [ext_resource type="Script" path="res://scenes/VirtualGuy.gd" id="15_rmwe4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t1dwi"]
 
 [node name="Root" type="Node"]
-
-[node name="VirtualGuy" parent="." instance=ExtResource("1_wc48a")]
-position = Vector2(17, 520)
-script = ExtResource("15_rmwe4")
 
 [node name="map_one" type="ParallaxBackground" parent="."]
 
@@ -47,9 +45,9 @@ texture = ExtResource("12_bw528")
 
 [node name="stems_shadows" type="TextureRect" parent="map_one/background"]
 offset_left = -150.0
-offset_top = -200.0
+offset_top = -245.0
 offset_right = 1850.0
-offset_bottom = 593.0
+offset_bottom = 755.0
 texture = ExtResource("10_3wknr")
 stretch_mode = 1
 
@@ -84,9 +82,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -150.0
-offset_top = -180.0
+offset_top = -200.0
 offset_right = 1850.0
-offset_bottom = 613.0
+offset_bottom = 593.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_i4ca0")
@@ -110,7 +108,7 @@ anchor_bottom = 1.0
 offset_left = -150.0
 offset_top = -780.0
 offset_right = 1690.0
-offset_bottom = 13.0
+offset_bottom = 30.0
 grow_vertical = 0
 texture = ExtResource("9_o7tot")
 stretch_mode = 1
@@ -153,3 +151,31 @@ offset_bottom = 83.0
 scale = Vector2(2.13362, 1.83796)
 texture = ExtResource("3_npk7b")
 stretch_mode = 1
+
+[node name="VirtualGuy" parent="." instance=ExtResource("1_wc48a")]
+position = Vector2(142, 523)
+script = ExtResource("15_rmwe4")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("14_inai0")
+
+[node name="Collectables" type="Node" parent="."]
+
+[node name="CollectableKiwi" parent="Collectables" instance=ExtResource("13_wjmct")]
+position = Vector2(353, 441)
+
+[node name="CollectableKiwi6" parent="Collectables" instance=ExtResource("13_wjmct")]
+position = Vector2(765, 447)
+
+[node name="CollectableKiwi2" parent="Collectables" instance=ExtResource("13_wjmct")]
+position = Vector2(447, 413)
+
+[node name="CollectableKiwi5" parent="Collectables" instance=ExtResource("13_wjmct")]
+position = Vector2(689, 413)
+
+[node name="CollectableKiwi3" parent="Collectables" instance=ExtResource("13_wjmct")]
+position = Vector2(526, 377)
+
+[node name="CollectableKiwi4" parent="Collectables" instance=ExtResource("13_wjmct")]
+position = Vector2(611, 376)

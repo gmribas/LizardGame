@@ -190,11 +190,11 @@ animations = [{
 size = Vector2(58, 96)
 
 [node name="VirtualGuy" type="CharacterBody2D"]
-position = Vector2(40, 547)
+position = Vector2(66, 563)
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(26, 38.0822)
+position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(2.625, 3.38014)
 sprite_frames = SubResource("SpriteFrames_s3jnj")
 animation = &"idle"
@@ -202,12 +202,14 @@ autoplay = "idle"
 frame_progress = 0.17246
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(26, 45)
+position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("RectangleShape2D_fqy1q")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(26, 45)
+position = Vector2(2.08165e-12, 2.08165e-12)
 offset = Vector2(2.08165e-12, -260)
 limit_left = -100
 limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
 drag_horizontal_enabled = true
