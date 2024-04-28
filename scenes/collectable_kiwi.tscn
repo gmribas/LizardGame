@@ -1,8 +1,32 @@
-[gd_scene load_steps=30 format=3 uid="uid://vonf6ps58aik"]
+[gd_scene load_steps=29 format=3 uid="uid://vonf6ps58aik"]
 
 [ext_resource type="Script" path="res://scenes/collectable_kiwi.gd" id="1_5ss0u"]
 [ext_resource type="Texture2D" uid="uid://cmy4nxjfc8657" path="res://frames/collectables/kiwi.png" id="1_j5hw4"]
 [ext_resource type="Texture2D" uid="uid://ddx4mrdhr0vm5" path="res://frames/collectables/collected.png" id="3_0ct2b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uoh3k"]
+atlas = ExtResource("3_0ct2b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh08g"]
+atlas = ExtResource("3_0ct2b")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1o58"]
+atlas = ExtResource("3_0ct2b")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y378i"]
+atlas = ExtResource("3_0ct2b")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amrl7"]
+atlas = ExtResource("3_0ct2b")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncdu2"]
+atlas = ExtResource("3_0ct2b")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h4nvg"]
 atlas = ExtResource("1_j5hw4")
@@ -76,6 +100,29 @@ region = Rect2(512, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_uoh3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh08g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1o58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y378i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amrl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncdu2")
+}],
+"loop": true,
+"name": &"collected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_h4nvg")
 }, {
 "duration": 1.0,
@@ -134,74 +181,20 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_aqe63"]
 radius = 12.5399
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_53avc"]
-atlas = ExtResource("3_0ct2b")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v51ig"]
-atlas = ExtResource("3_0ct2b")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kt8sr"]
-atlas = ExtResource("3_0ct2b")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l17mn"]
-atlas = ExtResource("3_0ct2b")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vm3du"]
-atlas = ExtResource("3_0ct2b")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qvqrt"]
-atlas = ExtResource("3_0ct2b")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_5quuv"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_53avc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v51ig")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kt8sr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l17mn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vm3du")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qvqrt")
-}],
-"loop": true,
-"name": &"default",
-"speed": 15.0
-}]
-
 [node name="CollectableKiwi" type="Area2D"]
 script = ExtResource("1_5ss0u")
 
 [node name="Kiwi2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_h8kwe")
+animation = &"collected"
 autoplay = "default"
-frame_progress = 0.166335
+frame_progress = 0.353911
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0.5, 0)
 shape = SubResource("CircleShape2D_aqe63")
 
-[node name="Collected2D" type="AnimatedSprite2D" parent="."]
-visible = false
-sprite_frames = SubResource("SpriteFrames_5quuv")
-autoplay = "default"
-frame = 3
-frame_progress = 0.193072
-
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_looped" from="Kiwi2D" to="." method="_on_kiwi_2d_animation_looped"]
