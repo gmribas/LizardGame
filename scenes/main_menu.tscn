@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfw7x2opdvhv7"]
+
+[ext_resource type="Texture2D" uid="uid://bddeffri8ur70" path="res://assets/menu_title.png" id="1_6wib5"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_7pc8h"]
+[ext_resource type="Texture2D" uid="uid://bwjhnwqn5xc5s" path="res://assets/green.png" id="1_swipf"]
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_7pc8h")
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 1151.0
+offset_bottom = 642.0
+texture = ExtResource("1_swipf")
+stretch_mode = 1
+
+[node name="Text" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -84.5
+offset_right = 168.0
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6wib5")
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = 37.0
+offset_right = 117.0
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.996078, 1, 0.647059, 1)
+theme_override_font_sizes/font_size = 30
+text = "Start
+"
+flat = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
