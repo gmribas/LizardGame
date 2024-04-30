@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbe4w0di5anq4"]
+
+[ext_resource type="Texture2D" uid="uid://dhkr3vlkle44p" path="res://assets/level_finish_title.png" id="1_18710"]
+
+[node name="FinishLevel" type="Panel"]
+
+[node name="Finish" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 1
+offset_right = 350.0
+offset_bottom = 98.0
+texture = ExtResource("1_18710")

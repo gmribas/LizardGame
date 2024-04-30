@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b8y1hxxtygcd6"]
+[gd_scene load_steps=21 format=3 uid="uid://b8y1hxxtygcd6"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ug47y"]
 [ext_resource type="Script" path="res://scripts/player_attributes.gd" id="2_0mpab"]
@@ -13,9 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://dba36115av74c" path="res://assets/background/Layer_0003_6.png" id="10_ctpod"]
 [ext_resource type="Texture2D" uid="uid://ceibrouxruyvu" path="res://assets/background/Layer_0002_7.png" id="11_6bwmo"]
 [ext_resource type="PackedScene" uid="uid://df1a6vfcdch5t" path="res://scenes/virtual_guy.tscn" id="12_se8y4"]
-[ext_resource type="Script" path="res://scripts/VirtualGuy.gd" id="13_xtl5w"]
+[ext_resource type="Script" path="res://scripts/virtual_guy.gd" id="13_xtl5w"]
 [ext_resource type="PackedScene" uid="uid://vonf6ps58aik" path="res://scenes/collectable_kiwi.tscn" id="14_75bd8"]
 [ext_resource type="PackedScene" uid="uid://bam10gyc1iv1t" path="res://scenes/end_trophy.tscn" id="15_8ubwc"]
+[ext_resource type="PackedScene" uid="uid://cbe4w0di5anq4" path="res://scenes/finish_level.tscn" id="17_121n3"]
+[ext_resource type="Script" path="res://scripts/label_points.gd" id="17_upibd"]
 
 [sub_resource type="GDScript" id="GDScript_c8iqv"]
 script/source = "extends Node
@@ -42,6 +44,7 @@ script = ExtResource("2_0mpab")
 [node name="background" type="ParallaxLayer" parent="SceneObjects/map_one"]
 motion_scale = Vector2(0.7, 0.7)
 motion_mirroring = Vector2(1856, 0)
+metadata/_edit_lock_ = true
 
 [node name="blue" type="TextureRect" parent="SceneObjects/map_one/background"]
 texture_filter = 1
@@ -51,6 +54,7 @@ offset_right = 778.0
 offset_bottom = 83.0
 scale = Vector2(2.13362, 1.83796)
 texture = ExtResource("2_iye0v")
+metadata/_edit_lock_ = true
 
 [node name="gradient" type="TextureRect" parent="SceneObjects/map_one/background"]
 texture_filter = 1
@@ -60,6 +64,7 @@ offset_right = 778.0
 offset_bottom = 83.0
 scale = Vector2(2.13362, 1.83796)
 texture = ExtResource("3_mgjrn")
+metadata/_edit_lock_ = true
 
 [node name="stems_shadows" type="TextureRect" parent="SceneObjects/map_one/background"]
 offset_left = -150.0
@@ -68,10 +73,12 @@ offset_right = 1850.0
 offset_bottom = 755.0
 texture = ExtResource("4_b2e4v")
 stretch_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="lights" type="ParallaxLayer" parent="SceneObjects/map_one"]
 motion_scale = Vector2(0.6, 0.6)
 motion_mirroring = Vector2(1856, 0)
+metadata/_edit_lock_ = true
 
 [node name="layer5" type="TextureRect" parent="SceneObjects/map_one/lights"]
 texture_filter = 1
@@ -81,6 +88,7 @@ offset_right = 778.0
 offset_bottom = 83.0
 scale = Vector2(2.13362, 1.83796)
 texture = ExtResource("5_66le2")
+metadata/_edit_lock_ = true
 
 [node name="layer7" type="TextureRect" parent="SceneObjects/map_one/lights"]
 texture_filter = 1
@@ -90,10 +98,12 @@ offset_right = 778.0
 offset_bottom = 83.0
 scale = Vector2(2.13362, 1.83796)
 texture = ExtResource("6_y1yfe")
+metadata/_edit_lock_ = true
 
 [node name="grass" type="ParallaxLayer" parent="SceneObjects/map_one"]
 motion_scale = Vector2(1.2, 1.2)
 motion_mirroring = Vector2(1856, 0)
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="SceneObjects/map_one/grass"]
 anchors_preset = 15
@@ -107,13 +117,16 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_ccc0b")
 stretch_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="ground" type="ParallaxLayer" parent="SceneObjects/map_one"]
 motion_scale = Vector2(1.3, 1.3)
 motion_mirroring = Vector2(1856, 0)
+metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="SceneObjects/map_one/ground"]
 position = Vector2(8, 610)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneObjects/map_one/ground/StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_t1dwi")
@@ -130,9 +143,12 @@ offset_bottom = 30.0
 grow_vertical = 0
 texture = ExtResource("8_uaq5a")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="init_wall" type="ParallaxLayer" parent="SceneObjects/map_one"]
 motion_scale = Vector2(2.08165e-12, 2.08165e-12)
+metadata/_edit_lock_ = true
 
 [node name="init_wall" type="TileMap" parent="SceneObjects/map_one/init_wall"]
 z_index = -1
@@ -141,10 +157,12 @@ scale = Vector2(3, 3)
 tile_set = ExtResource("9_ntmf7")
 format = 2
 layer_0/tile_data = PackedInt32Array(851967, 0, 47, 786431, 0, 47, 720895, 0, 47, 655359, 0, 47, 589823, 0, 47, 524287, 0, 47, 458751, 0, 47, 393215, 0, 47, 327679, 0, 47, 262143, 0, 47, 196607, 0, 47, 131071, 0, 47, 65535, 0, 47)
+metadata/_edit_lock_ = true
 
 [node name="stem" type="ParallaxLayer" parent="SceneObjects/map_one"]
 motion_scale = Vector2(0.7, 0.7)
 motion_mirroring = Vector2(1856, 0)
+metadata/_edit_lock_ = true
 
 [node name="layer4" type="TextureRect" parent="SceneObjects/map_one/stem"]
 texture_filter = 1
@@ -155,10 +173,12 @@ offset_bottom = 63.0
 scale = Vector2(2.13362, 1.83796)
 texture = ExtResource("10_ctpod")
 stretch_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="tree_top" type="ParallaxLayer" parent="SceneObjects/map_one"]
 motion_scale = Vector2(0.7, 0.7)
 motion_mirroring = Vector2(1856, 0)
+metadata/_edit_lock_ = true
 
 [node name="layer2" type="TextureRect" parent="SceneObjects/map_one/tree_top"]
 texture_filter = 1
@@ -169,6 +189,7 @@ offset_bottom = 83.0
 scale = Vector2(2.13362, 1.83796)
 texture = ExtResource("11_6bwmo")
 stretch_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="VirtualGuy" parent="SceneObjects" instance=ExtResource("12_se8y4")]
 position = Vector2(142, 523)
@@ -179,23 +200,35 @@ metadata/_edit_lock_ = true
 
 [node name="CollectableKiwi" parent="SceneObjects/Collectables" instance=ExtResource("14_75bd8")]
 position = Vector2(353, 441)
+metadata/_edit_lock_ = true
 
 [node name="CollectableKiwi6" parent="SceneObjects/Collectables" instance=ExtResource("14_75bd8")]
 position = Vector2(765, 447)
+metadata/_edit_lock_ = true
 
 [node name="CollectableKiwi2" parent="SceneObjects/Collectables" instance=ExtResource("14_75bd8")]
 position = Vector2(447, 413)
+metadata/_edit_lock_ = true
 
 [node name="CollectableKiwi5" parent="SceneObjects/Collectables" instance=ExtResource("14_75bd8")]
 position = Vector2(689, 413)
+metadata/_edit_lock_ = true
 
 [node name="CollectableKiwi3" parent="SceneObjects/Collectables" instance=ExtResource("14_75bd8")]
 position = Vector2(526, 377)
+metadata/_edit_lock_ = true
 
 [node name="CollectableKiwi4" parent="SceneObjects/Collectables" instance=ExtResource("14_75bd8")]
 position = Vector2(611, 376)
+metadata/_edit_lock_ = true
 
-[node name="EndTorphy" parent="SceneObjects" instance=ExtResource("15_8ubwc")]
+[node name="FinishLevel" parent="SceneObjects" instance=ExtResource("17_121n3")]
+offset_left = 3221.0
+offset_top = 259.0
+offset_right = 3221.0
+offset_bottom = 259.0
+
+[node name="EndTrophy" parent="SceneObjects" instance=ExtResource("15_8ubwc")]
 position = Vector2(3378, 548)
 metadata/_edit_lock_ = true
 
@@ -219,3 +252,5 @@ theme_override_font_sizes/font_size = 30
 text = "0 Points"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("17_upibd")
+metadata/_edit_lock_ = true

@@ -1,5 +1,6 @@
 extends Area2D
 
+@onready var game_manager: GameManager = $"../../GameManager"
 @onready var trophy = %Trophy
 
 const STATE_DEFAULT = 0
@@ -14,3 +15,4 @@ func _on_body_entered(body):
 	if (body.name == "VirtualGuy" && currentState == STATE_DEFAULT):
 		currentState = STATE_FINISHED
 		trophy.animation = animations[currentState]
+		game_manager.finish_level()

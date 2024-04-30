@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://crpdwkrx0yo2m" path="res://assets/end_idle.png" id="3_6hwl2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecduh"]
-size = Vector2(67, 66)
+size = Vector2(67, 656)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s6ojr"]
 atlas = ExtResource("2_wocbi")
@@ -87,9 +87,8 @@ animations = [{
 script = ExtResource("1_yyeeu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 15)
+position = Vector2(-0.5, -280)
 shape = SubResource("RectangleShape2D_ecduh")
-metadata/_edit_lock_ = true
 
 [node name="Trophy" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
