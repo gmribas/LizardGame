@@ -1,4 +1,4 @@
-class_name Collectable
+class_name Trophy
 
 extends Area2D
 

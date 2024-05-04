@@ -1,8 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://bam10gyc1iv1t"]
+[gd_scene load_steps=18 format=3 uid="uid://bam10gyc1iv1t"]
 
-[ext_resource type="Script" path="res://scripts/end_trophy.gd" id="1_yyeeu"]
+[ext_resource type="Script" path="res://scripts/end_trophy/end_trophy.gd" id="1_yyeeu"]
 [ext_resource type="Texture2D" uid="uid://lj0xd6fd8mhq" path="res://assets/end_pressed.png" id="2_wocbi"]
 [ext_resource type="Texture2D" uid="uid://crpdwkrx0yo2m" path="res://assets/end_idle.png" id="3_6hwl2"]
+[ext_resource type="Script" path="res://scripts/base/state_machine.gd" id="4_of7wp"]
+[ext_resource type="Script" path="res://scripts/end_trophy/state/idle_state.gd" id="5_g8v8v"]
+[ext_resource type="Script" path="res://scripts/end_trophy/state/finished_state.gd" id="6_nydwi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecduh"]
 size = Vector2(67, 656)
@@ -98,7 +101,16 @@ scale = Vector2(1.46875, 1.46875)
 sprite_frames = SubResource("SpriteFrames_psvbf")
 animation = &"finished"
 autoplay = "idle"
-frame_progress = 0.824468
 metadata/_edit_lock_ = true
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_of7wp")
+initial_state = NodePath("IdleTrophyState")
+
+[node name="IdleTrophyState" type="Node" parent="StateMachine"]
+script = ExtResource("5_g8v8v")
+
+[node name="FinishedTrophyState" type="Node" parent="StateMachine"]
+script = ExtResource("6_nydwi")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

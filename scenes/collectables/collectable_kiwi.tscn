@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cmy4nxjfc8657" path="res://assets/collectables/kiwi.png" id="1_j5hw4"]
 [ext_resource type="Texture2D" uid="uid://ddx4mrdhr0vm5" path="res://assets/collectables/collected.png" id="3_0ct2b"]
 [ext_resource type="Script" path="res://scripts/base/state_machine.gd" id="4_ni6td"]
-[ext_resource type="Script" path="res://scripts/collectables/default_state.gd" id="5_ev5b2"]
-[ext_resource type="Script" path="res://scripts/collectables/collected_state.gd" id="6_thu4g"]
+[ext_resource type="Script" path="res://scripts/collectables/state/default_state.gd" id="5_ev5b2"]
+[ext_resource type="Script" path="res://scripts/collectables/state/collected_state.gd" id="6_thu4g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uoh3k"]
 atlas = ExtResource("3_0ct2b")
