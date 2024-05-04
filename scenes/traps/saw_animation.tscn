@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsodlge0nllen"]
+
+[ext_resource type="PackedScene" uid="uid://bwlcubo5mxghv" path="res://scenes/traps/saw.tscn" id="1_va3ug"]
+
+[sub_resource type="Animation" id="Animation_5yscf"]
+resource_name = "flying_saw"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ykgqn"]
+_data = {
+"flying_saw": SubResource("Animation_5yscf")
+}
+
+[node name="SawAnimation" type="AnimationPlayer"]
+libraries = {
+"": SubResource("AnimationLibrary_ykgqn")
+}
+
+[node name="Saw" parent="." instance=ExtResource("1_va3ug")]

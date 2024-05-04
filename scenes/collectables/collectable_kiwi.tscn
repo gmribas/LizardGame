@@ -1,8 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://vonf6ps58aik"]
+[gd_scene load_steps=32 format=3 uid="uid://vonf6ps58aik"]
 
-[ext_resource type="Script" path="res://scripts/collectable_kiwi.gd" id="1_5ss0u"]
+[ext_resource type="Script" path="res://scripts/collectables/collectable_kiwi.gd" id="1_5ss0u"]
 [ext_resource type="Texture2D" uid="uid://cmy4nxjfc8657" path="res://assets/collectables/kiwi.png" id="1_j5hw4"]
 [ext_resource type="Texture2D" uid="uid://ddx4mrdhr0vm5" path="res://assets/collectables/collected.png" id="3_0ct2b"]
+[ext_resource type="Script" path="res://scripts/base/state_machine.gd" id="4_ni6td"]
+[ext_resource type="Script" path="res://scripts/collectables/default_state.gd" id="5_ev5b2"]
+[ext_resource type="Script" path="res://scripts/collectables/collected_state.gd" id="6_thu4g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uoh3k"]
 atlas = ExtResource("3_0ct2b")
@@ -197,5 +200,15 @@ visible = false
 position = Vector2(0.5, 0)
 shape = SubResource("CircleShape2D_aqe63")
 
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_ni6td")
+initial_state = NodePath("DefaultCollectableState")
+
+[node name="DefaultCollectableState" type="Node" parent="StateMachine"]
+script = ExtResource("5_ev5b2")
+
+[node name="CollectedCollectableState" type="Node" parent="StateMachine"]
+script = ExtResource("6_thu4g")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="animation_looped" from="Kiwi2D" to="." method="_on_kiwi_2d_animation_looped"]
+[connection signal="animation_looped" from="Kiwi2D" to="StateMachine/CollectedCollectableState" method="_on_kiwi_2d_animation_looped"]
