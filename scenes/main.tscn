@@ -1,7 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://b8y1hxxtygcd6"]
+[gd_scene load_steps=22 format=3 uid="uid://b8y1hxxtygcd6"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ug47y"]
-[ext_resource type="Script" path="res://scripts/player_attributes.gd" id="2_0mpab"]
 [ext_resource type="Texture2D" uid="uid://p112te2ifw2i" path="res://assets/background/Layer_0010_1.png" id="2_iye0v"]
 [ext_resource type="Texture2D" uid="uid://bxyskypmeuu54" path="res://assets/background/Layer_0011_0.png" id="3_mgjrn"]
 [ext_resource type="Texture2D" uid="uid://b3ui3vbcghcee" path="res://assets/background/Layer_0009_2.png" id="4_b2e4v"]
@@ -15,9 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://df1a6vfcdch5t" path="res://scenes/characters/virtual_guy.tscn" id="12_se8y4"]
 [ext_resource type="Script" path="res://scripts/characters/virtual_guy.gd" id="13_xtl5w"]
 [ext_resource type="PackedScene" uid="uid://vonf6ps58aik" path="res://scenes/collectables/collectable_kiwi.tscn" id="14_75bd8"]
+[ext_resource type="PackedScene" uid="uid://r3jom7elntf2" path="res://scenes/traps/fire.tscn" id="15_7akho"]
 [ext_resource type="PackedScene" uid="uid://bam10gyc1iv1t" path="res://scenes/finish_line/end_trophy.tscn" id="15_8ubwc"]
 [ext_resource type="PackedScene" uid="uid://cbe4w0di5anq4" path="res://scenes/finish_line/finish_level.tscn" id="17_121n3"]
 [ext_resource type="Script" path="res://scripts/label_points.gd" id="17_upibd"]
+[ext_resource type="PackedScene" uid="uid://bwlcubo5mxghv" path="res://scenes/traps/saw.tscn" id="19_h6wbd"]
 
 [sub_resource type="GDScript" id="GDScript_c8iqv"]
 script/source = "extends Node
@@ -33,9 +34,6 @@ script = SubResource("GDScript_c8iqv")
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_ug47y")
-
-[node name="PlayerAttributes" type="Node" parent="."]
-script = ExtResource("2_0mpab")
 
 [node name="SceneObjects" type="Node" parent="."]
 
@@ -194,6 +192,31 @@ metadata/_edit_lock_ = true
 [node name="VirtualGuy" parent="SceneObjects" instance=ExtResource("12_se8y4")]
 position = Vector2(145, 561)
 script = ExtResource("13_xtl5w")
+metadata/_edit_lock_ = true
+
+[node name="Traps" type="Node" parent="SceneObjects"]
+
+[node name="Fire" parent="SceneObjects/Traps" node_paths=PackedStringArray("character") instance=ExtResource("15_7akho")]
+position = Vector2(891, 591)
+scale = Vector2(2, 2)
+character = NodePath("../../VirtualGuy")
+metadata/_edit_lock_ = true
+
+[node name="Fire2" parent="SceneObjects/Traps" node_paths=PackedStringArray("character") instance=ExtResource("15_7akho")]
+position = Vector2(1025, 591)
+scale = Vector2(2, 2)
+character = NodePath("../../VirtualGuy")
+metadata/_edit_lock_ = true
+
+[node name="Saw" parent="SceneObjects/Traps" node_paths=PackedStringArray("character") instance=ExtResource("19_h6wbd")]
+position = Vector2(1996, 569)
+scale = Vector2(2, 2)
+character = NodePath("../../VirtualGuy")
+
+[node name="Saw2" parent="SceneObjects/Traps" node_paths=PackedStringArray("character") instance=ExtResource("19_h6wbd")]
+position = Vector2(2506, 546)
+scale = Vector2(2, 2)
+character = NodePath("../../VirtualGuy")
 
 [node name="Collectables" type="Node" parent="SceneObjects"]
 

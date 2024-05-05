@@ -1,8 +1,11 @@
 [gd_scene load_steps=15 format=3 uid="uid://bwlcubo5mxghv"]
 
 [ext_resource type="Texture2D" uid="uid://dy5kqbb1csa86" path="res://assets/traps/saw_off.png" id="1_ifhfj"]
-[ext_resource type="Script" path="res://scripts/saw.gd" id="1_iirje"]
+[ext_resource type="Script" path="res://scripts/traps/saw.gd" id="1_iirje"]
 [ext_resource type="Texture2D" uid="uid://c58jhlh5uwgdt" path="res://assets/traps/saw_on.png" id="2_kg431"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vpwo8"]
+radius = 20.025
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uhk6r"]
 atlas = ExtResource("1_ifhfj")
@@ -80,17 +83,13 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_l5fsb"]
-radius = 20.2237
-
-[node name="Saw" type="Area2D"]
+[node name="Saw" type="CharacterBody2D"]
 script = ExtResource("1_iirje")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vpwo8")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lajlp")
 animation = &"on"
-autoplay = "off"
-frame_progress = 0.626042
-
-[node name="collision" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_l5fsb")
+autoplay = "on"

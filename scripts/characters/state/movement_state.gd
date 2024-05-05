@@ -13,7 +13,7 @@ func physics_update(delta):
 	var velocity_x = character.velocity.x
 	
 	#End game early return
-	if ((game_manager.is_level_finished() && is_on_floor)):
+	if (game_manager.is_level_finished() && is_on_floor):
 		sprite_2d.animation = ANIMATION_IDLE
 		return
 		

@@ -11,6 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var input_handler: InputHandler = $InputHandler
 
 func _ready():
+	character_name = "VirtualGuy"
 	input_handler.withCharacter(self)
 	
 func _physics_process(delta):

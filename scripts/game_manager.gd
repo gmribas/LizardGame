@@ -5,6 +5,7 @@ class_name GameManager extends Node
 
 var points = 0
 var current_level = Level.new()
+var life = PlayerAttributes.DEFAULT_LIFE
 
 func add_points():
 	points += 1
@@ -16,3 +17,7 @@ func finish_level():
 
 func is_level_finished():
 	return current_level.state == Level.LEVEL_STATE_FINISHED
+
+func decrement_life():
+	life = life - 1
+	print("HUEHUE %d" % life)

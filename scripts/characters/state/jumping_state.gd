@@ -6,11 +6,16 @@ const ANIMATION = "jumping"
 
 @onready var sprite_2d = $"../../Sprite2D"
 @onready var player_attributes = $"../../../../PlayerAttributes"
+@onready var game_manager = $"../../../../GameManager"
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 	
 func physics_update(delta):	
+	#End game early return
+	if (game_manager.is_level_finished()):
+		return
+		
 	# Add the gravity.
 	if not character.is_on_floor():
 		character.velocity.y += gravity * delta
