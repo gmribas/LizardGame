@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dba36115av74c" path="res://assets/background/Layer_0003_6.png" id="10_ctpod"]
 [ext_resource type="Texture2D" uid="uid://ceibrouxruyvu" path="res://assets/background/Layer_0002_7.png" id="11_6bwmo"]
 [ext_resource type="PackedScene" uid="uid://df1a6vfcdch5t" path="res://scenes/characters/virtual_guy.tscn" id="12_se8y4"]
-[ext_resource type="Script" path="res://scripts/virtual_guy.gd" id="13_xtl5w"]
+[ext_resource type="Script" path="res://scripts/characters/virtual_guy.gd" id="13_xtl5w"]
 [ext_resource type="PackedScene" uid="uid://vonf6ps58aik" path="res://scenes/collectables/collectable_kiwi.tscn" id="14_75bd8"]
 [ext_resource type="PackedScene" uid="uid://bam10gyc1iv1t" path="res://scenes/finish_line/end_trophy.tscn" id="15_8ubwc"]
 [ext_resource type="PackedScene" uid="uid://cbe4w0di5anq4" path="res://scenes/finish_line/finish_level.tscn" id="17_121n3"]
@@ -192,9 +192,8 @@ stretch_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="VirtualGuy" parent="SceneObjects" instance=ExtResource("12_se8y4")]
-position = Vector2(142, 523)
+position = Vector2(145, 561)
 script = ExtResource("13_xtl5w")
-metadata/_edit_lock_ = true
 
 [node name="Collectables" type="Node" parent="SceneObjects"]
 

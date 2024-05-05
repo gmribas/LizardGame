@@ -1,8 +1,12 @@
-[gd_scene load_steps=29 format=3 uid="uid://df1a6vfcdch5t"]
+[gd_scene load_steps=33 format=3 uid="uid://df1a6vfcdch5t"]
 
 [ext_resource type="Texture2D" uid="uid://dfm6tnfx5guj1" path="res://assets/virtual_guy/virtual_guy_idle.png" id="1_g6lhu"]
 [ext_resource type="Texture2D" uid="uid://h22i78vsyff3" path="res://assets/virtual_guy/virtual_guy_jump.png" id="2_scg2k"]
 [ext_resource type="Texture2D" uid="uid://b46lp5m7ky1l7" path="res://assets/virtual_guy/virtual_guy_run.png" id="3_5gpxj"]
+[ext_resource type="Script" path="res://scripts/base/state_machine.gd" id="4_rjjmj"]
+[ext_resource type="Script" path="res://scripts/characters/state/movement_state.gd" id="5_7ivck"]
+[ext_resource type="Script" path="res://scripts/characters/state/jumping_state.gd" id="6_0tihx"]
+[ext_resource type="Script" path="res://scripts/characters/input/input_handler.gd" id="7_340b8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pupgw"]
 atlas = ExtResource("1_g6lhu")
@@ -213,3 +217,16 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
 drag_horizontal_enabled = true
+
+[node name="InputHandler" type="Node" parent="."]
+script = ExtResource("7_340b8")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_rjjmj")
+initial_state = NodePath("MovementCharacterState")
+
+[node name="MovementCharacterState" type="Node" parent="StateMachine"]
+script = ExtResource("5_7ivck")
+
+[node name="JumpingCharacterState" type="Node" parent="StateMachine"]
+script = ExtResource("6_0tihx")

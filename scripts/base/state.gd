@@ -29,7 +29,7 @@ func physics_update(_delta: float) -> void:
 func enter(_msg := {}) -> void:
 	pass
 
-func body_entered(body):
+func body_entered(_body):
 	pass
 	
 # Virtual function. Called by the state machine before changing the active state. Use this function
