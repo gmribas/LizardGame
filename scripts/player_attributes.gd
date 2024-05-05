@@ -1,5 +1,5 @@
 extends Node
 
-const SPEED = 400.0
+const SPEED = 200.0
 const DECELERATION = 10	
-const JUMP_VELOCITY = -1500.0
+const JUMP_VELOCITY = -1000.0
