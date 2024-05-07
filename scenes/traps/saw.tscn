@@ -89,7 +89,14 @@ script = ExtResource("1_iirje")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vpwo8")
 
-[node name="sprite" type="AnimatedSprite2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_vpwo8")
+
+[node name="sprite" type="AnimatedSprite2D" parent="Area2D"]
 sprite_frames = SubResource("SpriteFrames_lajlp")
 animation = &"on"
 autoplay = "on"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -2,20 +2,32 @@ extends CharacterBody2D
 
 class_name SawTrap
 
-const POSITION_THREASHOLD = 200
+const SAW_RANGE_OF_MOTION = 700
 
-@export var move_speed : float = 30.0
+@onready var game_manager = $"../../../GameManager"
+
+@export var move_speed : float = 80.0
 @export var character: BaseCharacter
 
-func _ready():
-	character = get_parent().get_node(character.character_name)
+var already_moved = false
 
 func _physics_process(delta):
 	var player_position = character.global_position
-	var enemy_position = global_position
-	var direction = player_position - enemy_position
+	var saw_position = global_position
+	var direction = player_position - saw_position
 	direction = direction.normalized()
 
-	if (player_position.distance_to(enemy_position) <= POSITION_THREASHOLD):
+	if player_position.distance_to(saw_position) <= SAW_RANGE_OF_MOTION:
+		already_moved = true
 		var motion = direction * move_speed * delta
-		move_and_collide(motion)
+		# move towards the character and passes it if missed
+		var calculate_motion = motion if (motion.x < 0) else motion * -1
+		move_and_collide(calculate_motion)
+	else:
+		if already_moved:
+			queue_free()
+
+
+func _on_area_2d_body_entered(_body):
+	if (_body.name == character.character_name):		
+		game_manager.decrement_life()

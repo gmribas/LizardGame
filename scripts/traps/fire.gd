@@ -7,5 +7,5 @@ class_name FireTrap
 @export var character: BaseCharacter
 
 func _on_body_entered(_body):
-	if (_body.name == character.characterName):		
+	if (_body.name == character.character_name):		
 		game_manager.decrement_life()

@@ -209,12 +209,7 @@ character = NodePath("../../VirtualGuy")
 metadata/_edit_lock_ = true
 
 [node name="Saw" parent="SceneObjects/Traps" node_paths=PackedStringArray("character") instance=ExtResource("19_h6wbd")]
-position = Vector2(1996, 569)
-scale = Vector2(2, 2)
-character = NodePath("../../VirtualGuy")
-
-[node name="Saw2" parent="SceneObjects/Traps" node_paths=PackedStringArray("character") instance=ExtResource("19_h6wbd")]
-position = Vector2(2506, 546)
+position = Vector2(1994, 586)
 scale = Vector2(2, 2)
 character = NodePath("../../VirtualGuy")
 
