@@ -1,6 +1,7 @@
 class_name GameManager extends Node
 
 @onready var label_points = %LabelPoints
+@onready var label_lives = %LabelLives
 @onready var finish_level_label = $"../SceneObjects/FinishLevel".get_node("Finish")
 
 var points = 0
@@ -16,8 +17,12 @@ func finish_level():
 	finish_level_label.visible = true
 
 func is_level_finished():
-	return current_level.state == Level.LEVEL_STATE_FINISHED
+	return current_level.state == Level.LevelStates.LEVEL_STATE_FINISHED
 
 func decrement_life():
 	life = life - 1
-	print("HUEHUE %d" % life)
+	label_lives.show_lives(life)
+	
+	if life <= 0:
+		current_level.game_over()
+		

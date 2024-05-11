@@ -2,10 +2,16 @@ extends Node
 
 class_name Level
 
-const LEVEL_STATE_STARTED = 0
-const LEVEL_STATE_FINISHED = 1
+enum LevelStates { 
+	LEVEL_STATE_STARTED,
+	LEVEL_STATE_FINISHED,
+	LEVEL_STATE_GAME_OVER
+}
 
-var state = LEVEL_STATE_STARTED
+var state: int = LevelStates.LEVEL_STATE_STARTED
 
 func finish():
-	state = LEVEL_STATE_FINISHED
+	state = LevelStates.LEVEL_STATE_FINISHED
+	
+func game_over():
+	state = LevelStates.LEVEL_STATE_GAME_OVER

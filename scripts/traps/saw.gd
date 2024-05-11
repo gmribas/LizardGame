@@ -31,3 +31,4 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(_body):
 	if (_body.name == character.character_name):		
 		game_manager.decrement_life()
+		queue_free()
