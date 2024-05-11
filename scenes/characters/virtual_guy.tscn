@@ -230,3 +230,6 @@ script = ExtResource("5_7ivck")
 
 [node name="JumpingCharacterState" type="Node" parent="StateMachine"]
 script = ExtResource("6_0tihx")
+jump_height = 20.0
+jump_time_to_peak = 0.5
+jump_time_to_descent = 0.3
