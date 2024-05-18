@@ -1,6 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://df1a6vfcdch5t"]
+[gd_scene load_steps=34 format=3 uid="uid://df1a6vfcdch5t"]
 
 [ext_resource type="Texture2D" uid="uid://dfm6tnfx5guj1" path="res://assets/virtual_guy/virtual_guy_idle.png" id="1_g6lhu"]
+[ext_resource type="Script" path="res://scripts/characters/virtual_guy.gd" id="1_rtsok"]
 [ext_resource type="Texture2D" uid="uid://h22i78vsyff3" path="res://assets/virtual_guy/virtual_guy_jump.png" id="2_scg2k"]
 [ext_resource type="Texture2D" uid="uid://b46lp5m7ky1l7" path="res://assets/virtual_guy/virtual_guy_run.png" id="3_5gpxj"]
 [ext_resource type="Script" path="res://scripts/base/state_machine.gd" id="4_rjjmj"]
@@ -146,7 +147,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jumping",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -193,17 +194,21 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fqy1q"]
 size = Vector2(58, 96)
 
-[node name="VirtualGuy" type="CharacterBody2D"]
+[node name="VirtualGuy" type="CharacterBody2D" node_paths=PackedStringArray("jump_state", "movement_state")]
 position = Vector2(66, 563)
+platform_floor_layers = 4294967232
+script = ExtResource("1_rtsok")
+jump_state = NodePath("StateMachine/JumpingCharacterState")
+movement_state = NodePath("StateMachine/MovementCharacterState")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(2.625, 3.38014)
 sprite_frames = SubResource("SpriteFrames_s3jnj")
-animation = &"running"
+animation = &"jumping"
 autoplay = "idle"
-frame_progress = 0.0347568
+frame_progress = 0.355173
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
@@ -227,9 +232,11 @@ initial_state = NodePath("MovementCharacterState")
 
 [node name="MovementCharacterState" type="Node" parent="StateMachine"]
 script = ExtResource("5_7ivck")
+state_name = "MovementCharacterState"
 
 [node name="JumpingCharacterState" type="Node" parent="StateMachine"]
 script = ExtResource("6_0tihx")
-jump_height = 20.0
-jump_time_to_peak = 0.5
-jump_time_to_descent = 0.3
+jump_height = 250.0
+jump_time_to_peak = 0.8
+jump_time_to_descent = 0.6
+state_name = "JumpingCharacterState"

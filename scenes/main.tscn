@@ -191,9 +191,9 @@ stretch_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="VirtualGuy" parent="SceneObjects" instance=ExtResource("12_se8y4")]
-position = Vector2(145, 561)
+position = Vector2(145, 576)
+slide_on_ceiling = false
 script = ExtResource("13_xtl5w")
-metadata/_edit_lock_ = true
 
 [node name="Traps" type="Node" parent="SceneObjects"]
 

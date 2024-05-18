@@ -4,8 +4,13 @@ extends Node
 
 @onready var sprite_2d = $"../Sprite2D"
 @onready var game_manager = $"../../../GameManager"
+@onready var state_machine: StateMachine = $"../StateMachine"
 
 var character: BaseCharacter
+
+var jump_state: State
+
+var movement_state: State
 
 func withCharacter(base_character: BaseCharacter) -> InputHandler:
 	self.character = base_character
@@ -15,20 +20,10 @@ func _process(_delta):
 	#End game early return
 	if (game_manager.is_level_finished()):
 		return
-		
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and character.is_on_floor():
-		character.velocity.y = PlayerAttributes.JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("left", "right")
-	if direction:
-		character.velocity.x = direction * PlayerAttributes.SPEED
-	else:
-		character.velocity.x = move_toward(character.velocity.x, 0, PlayerAttributes.DECELERATION)
+	if Input.is_action_just_pressed("jump"):
+		state_machine.transition_to(jump_state.state_name)
+	elif Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right"): 
+		state_machine.transition_to(movement_state.state_name)	
 
-	character.move_and_slide()
-
-	var isLeft = character.velocity.x < 0
-	sprite_2d.flip_h = isLeft
+	state_machine._physics_process(_delta)
