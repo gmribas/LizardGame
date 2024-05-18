@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b8y1hxxtygcd6"]
+[gd_scene load_steps=22 format=3 uid="uid://b8y1hxxtygcd6"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ug47y"]
 [ext_resource type="Texture2D" uid="uid://p112te2ifw2i" path="res://assets/background/Layer_0010_1.png" id="2_iye0v"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://dba36115av74c" path="res://assets/background/Layer_0003_6.png" id="10_ctpod"]
 [ext_resource type="Texture2D" uid="uid://ceibrouxruyvu" path="res://assets/background/Layer_0002_7.png" id="11_6bwmo"]
 [ext_resource type="PackedScene" uid="uid://df1a6vfcdch5t" path="res://scenes/characters/virtual_guy.tscn" id="12_se8y4"]
-[ext_resource type="Script" path="res://scripts/characters/virtual_guy.gd" id="13_xtl5w"]
 [ext_resource type="PackedScene" uid="uid://vonf6ps58aik" path="res://scenes/collectables/collectable_kiwi.tscn" id="14_75bd8"]
 [ext_resource type="PackedScene" uid="uid://r3jom7elntf2" path="res://scenes/traps/fire.tscn" id="15_7akho"]
 [ext_resource type="PackedScene" uid="uid://bam10gyc1iv1t" path="res://scenes/finish_line/end_trophy.tscn" id="15_8ubwc"]
@@ -193,7 +192,6 @@ metadata/_edit_lock_ = true
 [node name="VirtualGuy" parent="SceneObjects" instance=ExtResource("12_se8y4")]
 position = Vector2(145, 576)
 slide_on_ceiling = false
-script = ExtResource("13_xtl5w")
 
 [node name="Traps" type="Node" parent="SceneObjects"]
 

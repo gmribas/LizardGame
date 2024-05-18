@@ -5,17 +5,12 @@ extends CharacterState
 const ANIMATION_IDLE = "idle"
 const ANIMATION_RUNNING = "running"
 
+@export var jump_state: State
+
 @onready var sprite_2d: AnimatedSprite2D = $"../../Sprite2D"
-@onready var game_manager: GameManager = $"../../../../GameManager"
 	
 func physics_update(_delta):
-	#End game early return
-	if (game_manager.is_level_finished() && character.is_on_floor()):
-		sprite_2d.animation = ANIMATION_IDLE
-		return
-	
 	handle_movent(_delta)
-
 	handle_animation(_delta)
 	
 func handle_movent( _delta):
@@ -28,6 +23,10 @@ func handle_movent( _delta):
 		character.velocity.x = move_toward(character.velocity.x, 0, PlayerAttributes.DECELERATION)
 
 	character.move_and_slide()
+
+	# Character hit something from above and the gravity dynamic is in the jumping_state.gd
+	if not character.is_on_floor():
+		state_machine.transition_to(jump_state.state_name)
 
 
 func handle_animation(_delta):

@@ -6,7 +6,7 @@ const SAW_RANGE_OF_MOTION = 700
 
 @onready var game_manager = $"../../../GameManager"
 
-@export var move_speed : float = 80.0
+@export var move_speed : float = 120.0
 @export var character: BaseCharacter
 
 var already_moved = false

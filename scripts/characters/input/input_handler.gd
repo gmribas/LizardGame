@@ -17,13 +17,10 @@ func withCharacter(base_character: BaseCharacter) -> InputHandler:
 	return self
 	
 func _process(_delta):
-	#End game early return
-	if (game_manager.is_level_finished()):
-		return
+	if not game_manager.is_level_finished():
+		if Input.is_action_just_pressed("jump"):
+			state_machine.transition_to(jump_state.state_name)
+		elif Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right"): 
+			state_machine.transition_to(movement_state.state_name)	
 
-	if Input.is_action_just_pressed("jump"):
-		state_machine.transition_to(jump_state.state_name)
-	elif Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right"): 
-		state_machine.transition_to(movement_state.state_name)	
-
-	state_machine._physics_process(_delta)
+		state_machine._physics_process(_delta)

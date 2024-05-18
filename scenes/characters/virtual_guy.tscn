@@ -230,13 +230,15 @@ script = ExtResource("7_340b8")
 script = ExtResource("4_rjjmj")
 initial_state = NodePath("MovementCharacterState")
 
-[node name="MovementCharacterState" type="Node" parent="StateMachine"]
+[node name="MovementCharacterState" type="Node" parent="StateMachine" node_paths=PackedStringArray("jump_state")]
 script = ExtResource("5_7ivck")
+jump_state = NodePath("../JumpingCharacterState")
 state_name = "MovementCharacterState"
 
-[node name="JumpingCharacterState" type="Node" parent="StateMachine"]
+[node name="JumpingCharacterState" type="Node" parent="StateMachine" node_paths=PackedStringArray("movement_state")]
 script = ExtResource("6_0tihx")
 jump_height = 250.0
 jump_time_to_peak = 0.8
 jump_time_to_descent = 0.6
+movement_state = NodePath("../MovementCharacterState")
 state_name = "JumpingCharacterState"
