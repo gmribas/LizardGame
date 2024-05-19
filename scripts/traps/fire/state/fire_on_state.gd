@@ -7,7 +7,7 @@ const ANIMATION = "on"
 @onready var game_manager = $"../../../../../GameManager"
 @onready var sprite_2d = $Sprite2D
 
-#var character: BaseCharacter
+var character: BaseCharacter
 
 func enter(_msg := {}) -> void:
 	sprite_2d.animation = ANIMATION

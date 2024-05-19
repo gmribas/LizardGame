@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b8y1hxxtygcd6"]
+[gd_scene load_steps=23 format=3 uid="uid://b8y1hxxtygcd6"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ug47y"]
 [ext_resource type="Texture2D" uid="uid://p112te2ifw2i" path="res://assets/background/Layer_0010_1.png" id="2_iye0v"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bam10gyc1iv1t" path="res://scenes/finish_line/end_trophy.tscn" id="15_8ubwc"]
 [ext_resource type="PackedScene" uid="uid://cbe4w0di5anq4" path="res://scenes/finish_line/finish_level.tscn" id="17_121n3"]
 [ext_resource type="Script" path="res://scripts/label_points.gd" id="17_upibd"]
+[ext_resource type="Script" path="res://scripts/collectables/breakable_box/breakable_box.gd" id="18_5pmhn"]
 [ext_resource type="PackedScene" uid="uid://bwlcubo5mxghv" path="res://scenes/traps/saw.tscn" id="19_h6wbd"]
 [ext_resource type="Script" path="res://scripts/label_lives.gd" id="20_naavv"]
 
@@ -247,6 +248,11 @@ offset_bottom = 259.0
 [node name="EndTrophy" parent="SceneObjects" instance=ExtResource("15_8ubwc")]
 position = Vector2(3378, 548)
 metadata/_edit_lock_ = true
+
+[node name="BreakableBox" type="Area2D" parent="SceneObjects"]
+position = Vector2(1373, 609)
+scale = Vector2(3, 3)
+script = ExtResource("18_5pmhn")
 
 [node name="UI" type="CanvasLayer" parent="."]
 

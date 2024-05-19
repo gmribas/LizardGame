@@ -1,102 +1,103 @@
-[gd_scene load_steps=32 format=3 uid="uid://vonf6ps58aik"]
+[gd_scene load_steps=33 format=3 uid="uid://vonf6ps58aik"]
 
 [ext_resource type="Script" path="res://scripts/collectables/collectable_kiwi.gd" id="1_5ss0u"]
-[ext_resource type="Texture2D" uid="uid://cmy4nxjfc8657" path="res://assets/collectables/kiwi.png" id="1_j5hw4"]
-[ext_resource type="Texture2D" uid="uid://ddx4mrdhr0vm5" path="res://assets/collectables/collected.png" id="3_0ct2b"]
+[ext_resource type="Texture2D" uid="uid://ddx4mrdhr0vm5" path="res://assets/collectables/kiwi/collected.png" id="2_605hb"]
+[ext_resource type="Texture2D" uid="uid://cmy4nxjfc8657" path="res://assets/collectables/kiwi/kiwi.png" id="3_jtww3"]
+[ext_resource type="Script" path="res://scripts/collectables/collectable_sprite.gd" id="4_4ir57"]
 [ext_resource type="Script" path="res://scripts/base/state_machine.gd" id="4_ni6td"]
 [ext_resource type="Script" path="res://scripts/collectables/state/default_state.gd" id="5_ev5b2"]
 [ext_resource type="Script" path="res://scripts/collectables/state/collected_state.gd" id="6_thu4g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uoh3k"]
-atlas = ExtResource("3_0ct2b")
+atlas = ExtResource("2_605hb")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lh08g"]
-atlas = ExtResource("3_0ct2b")
+atlas = ExtResource("2_605hb")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o1o58"]
-atlas = ExtResource("3_0ct2b")
+atlas = ExtResource("2_605hb")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y378i"]
-atlas = ExtResource("3_0ct2b")
+atlas = ExtResource("2_605hb")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_amrl7"]
-atlas = ExtResource("3_0ct2b")
+atlas = ExtResource("2_605hb")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ncdu2"]
-atlas = ExtResource("3_0ct2b")
+atlas = ExtResource("2_605hb")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h4nvg"]
-atlas = ExtResource("1_j5hw4")
+atlas = ExtResource("3_jtww3")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2jx33"]
-atlas = ExtResource("1_j5hw4")
+atlas = ExtResource("3_jtww3")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aw8u5"]
-atlas = ExtResource("1_j5hw4")
+atlas = ExtResource("3_jtww3")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tm0dw"]
-atlas = ExtResource("1_j5hw4")
+atlas = ExtResource("3_jtww3")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5evn2"]
-atlas = ExtResource("1_j5hw4")
+atlas = ExtResource("3_jtww3")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2thhp"]
-atlas = ExtResource("1_j5hw4")
+atlas = ExtResource("3_jtww3")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ayc3f"]
-atlas = ExtResource("1_j5hw4")
+atlas = ExtResource("3_jtww3")
 region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g5seq"]
-atlas = ExtResource("1_j5hw4")
+atlas = ExtResource("3_jtww3")
 region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hpfyu"]
-atlas = ExtResource("1_j5hw4")
+atlas = ExtResource("3_jtww3")
 region = Rect2(256, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mdklh"]
-atlas = ExtResource("1_j5hw4")
+atlas = ExtResource("3_jtww3")
 region = Rect2(288, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2d5g6"]
-atlas = ExtResource("1_j5hw4")
+atlas = ExtResource("3_jtww3")
 region = Rect2(320, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k5ia6"]
-atlas = ExtResource("1_j5hw4")
+atlas = ExtResource("3_jtww3")
 region = Rect2(352, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ih1u7"]
-atlas = ExtResource("1_j5hw4")
+atlas = ExtResource("3_jtww3")
 region = Rect2(384, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uflyj"]
-atlas = ExtResource("1_j5hw4")
+atlas = ExtResource("3_jtww3")
 region = Rect2(416, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_28m6t"]
-atlas = ExtResource("1_j5hw4")
+atlas = ExtResource("3_jtww3")
 region = Rect2(448, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_re2nv"]
-atlas = ExtResource("1_j5hw4")
+atlas = ExtResource("3_jtww3")
 region = Rect2(480, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3brpt"]
-atlas = ExtResource("1_j5hw4")
+atlas = ExtResource("3_jtww3")
 region = Rect2(512, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h8kwe"]
@@ -184,8 +185,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_aqe63"]
 radius = 12.5399
 
-[node name="CollectableKiwi" type="Area2D"]
+[node name="CollectableKiwi" type="Area2D" node_paths=PackedStringArray("state_machine")]
 script = ExtResource("1_5ss0u")
+state_machine = NodePath("StateMachine")
 
 [node name="Kiwi2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
@@ -193,7 +195,7 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_h8kwe")
 animation = &"collected"
 autoplay = "default"
-frame_progress = 0.353911
+script = ExtResource("4_4ir57")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -204,11 +206,20 @@ shape = SubResource("CircleShape2D_aqe63")
 script = ExtResource("4_ni6td")
 initial_state = NodePath("DefaultCollectableState")
 
-[node name="DefaultCollectableState" type="Node" parent="StateMachine"]
+[node name="DefaultCollectableState" type="Node" parent="StateMachine" node_paths=PackedStringArray("collected_state", "sprite")]
 script = ExtResource("5_ev5b2")
+collected_state = NodePath("../CollectedCollectableState")
+sprite = NodePath("../../Kiwi2D")
+animation_name = "default"
+state_name = "DefaultCollectableState"
 
-[node name="CollectedCollectableState" type="Node" parent="StateMachine"]
+[node name="CollectedCollectableState" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite")]
 script = ExtResource("6_thu4g")
+sprite = NodePath("../../Kiwi2D")
+animation_name = "collected"
+state_name = "CollectedCollectableState"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_looped" from="Kiwi2D" to="." method="_on_kiwi_2d_animation_looped"]
 [connection signal="animation_looped" from="Kiwi2D" to="StateMachine/CollectedCollectableState" method="_on_kiwi_2d_animation_looped"]
+[connection signal="animation_looped" from="Kiwi2D" to="Kiwi2D" method="_on_animation_looped"]

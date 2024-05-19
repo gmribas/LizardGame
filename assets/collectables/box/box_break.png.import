@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmy4nxjfc8657"
-path="res://.godot/imported/kiwi.png-3bc9725b7c9496fd76947aecd847b866.ctex"
+uid="uid://dng4je34x5jgh"
+path="res://.godot/imported/box_break.png-d333933d2318fc8d1e1fc23c8b41f5c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/collectables/kiwi.png"
-dest_files=["res://.godot/imported/kiwi.png-3bc9725b7c9496fd76947aecd847b866.ctex"]
+source_file="res://assets/collectables/box/box_break.png"
+dest_files=["res://.godot/imported/box_break.png-d333933d2318fc8d1e1fc23c8b41f5c0.ctex"]
 
 [params]
 

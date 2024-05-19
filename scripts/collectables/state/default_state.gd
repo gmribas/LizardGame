@@ -2,16 +2,14 @@ class_name DefaultCollectableState
 
 extends CollectableState
 
-const ANIMATION = "default"
-
-@onready var game_manager = $"../../../../../GameManager"
-@onready var kiwi_2d = %Kiwi2D
+@onready var game_manager: GameManager = $"../../../../../GameManager"
+@export var collected_state: State
 
 func enter(_msg := {}) -> void:
-	kiwi_2d.animation = ANIMATION
+	sprite.animation = animation_name
 
 func body_entered(_body):
-	if (_body.name == "VirtualGuy"):		
-		state_machine.transition_to("CollectedCollectableState")
+	if (_body is BaseCharacter):	
+		state_machine.transition_to(collected_state.state_name)
 		game_manager.add_points()
 		

@@ -1,0 +1,122 @@
+[gd_scene load_steps=19 format=3 uid="uid://2c00nn0rx2gb"]
+
+[ext_resource type="Texture2D" uid="uid://dng4je34x5jgh" path="res://assets/collectables/box/box_break.png" id="1_nkwmf"]
+[ext_resource type="Texture2D" uid="uid://il0r34nvf1l" path="res://assets/collectables/box/box_hit.png" id="2_dv54l"]
+[ext_resource type="Texture2D" uid="uid://csyladymy1yka" path="res://assets/collectables/box/box_idle.png" id="2_gejq6"]
+[ext_resource type="Script" path="res://scripts/collectables/kiwi.gd" id="4_mbuk1"]
+[ext_resource type="Script" path="res://scripts/base/state_machine.gd" id="5_t7myr"]
+[ext_resource type="Script" path="res://scripts/collectables/state/default_state.gd" id="6_r8fia"]
+[ext_resource type="Script" path="res://scripts/collectables/breakable_box/state/breakable_box_break_state.gd" id="7_qad48"]
+[ext_resource type="Script" path="res://scripts/collectables/state/collected_state.gd" id="7_qw5ef"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8powo"]
+atlas = ExtResource("1_nkwmf")
+region = Rect2(0, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyy7w"]
+atlas = ExtResource("1_nkwmf")
+region = Rect2(28, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yygk"]
+atlas = ExtResource("1_nkwmf")
+region = Rect2(56, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juooj"]
+atlas = ExtResource("1_nkwmf")
+region = Rect2(84, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7x2f"]
+atlas = ExtResource("2_dv54l")
+region = Rect2(0, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lf2k"]
+atlas = ExtResource("2_dv54l")
+region = Rect2(28, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbobq"]
+atlas = ExtResource("2_dv54l")
+region = Rect2(56, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qen7v"]
+atlas = ExtResource("2_gejq6")
+region = Rect2(0, 0, 28, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m6kgo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8powo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyy7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yygk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juooj")
+}],
+"loop": true,
+"name": &"break",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7x2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lf2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbobq")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qen7v")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6ksl"]
+
+[node name="BreakableBox" type="Area2D"]
+texture_filter = 1
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_m6kgo")
+animation = &"break"
+autoplay = "idle"
+script = ExtResource("4_mbuk1")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v6ksl")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("5_t7myr")
+initial_state = NodePath("DefaultCollectableState")
+
+[node name="DefaultCollectableState" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite", "collected_state")]
+script = ExtResource("6_r8fia")
+animation_name = "idle"
+sprite = NodePath("../../sprite")
+collected_state = NodePath("../CollectedCollectableState")
+
+[node name="CollectedCollectableState" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite", "after_collected_state")]
+script = ExtResource("7_qw5ef")
+animation_name = "hit"
+sprite = NodePath("../../sprite")
+after_collected_state = NodePath("../BrealableBoxBreakState")
+state_name = "CollectedCollectableState"
+
+[node name="BrealableBoxBreakState" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite")]
+script = ExtResource("7_qad48")
+animation_name = "break"
+sprite = NodePath("../../sprite")
+state_name = "BrealableBoxBreakState"
