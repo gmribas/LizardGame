@@ -13,12 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://ceibrouxruyvu" path="res://assets/background/Layer_0002_7.png" id="11_6bwmo"]
 [ext_resource type="PackedScene" uid="uid://df1a6vfcdch5t" path="res://scenes/characters/virtual_guy.tscn" id="12_se8y4"]
 [ext_resource type="PackedScene" uid="uid://vonf6ps58aik" path="res://scenes/collectables/collectable_kiwi.tscn" id="14_75bd8"]
+[ext_resource type="PackedScene" uid="uid://da1b3r4gmxfvr" path="res://scenes/traps/saw3.tscn" id="14_i0nj2"]
 [ext_resource type="PackedScene" uid="uid://r3jom7elntf2" path="res://scenes/traps/fire.tscn" id="15_7akho"]
 [ext_resource type="PackedScene" uid="uid://bam10gyc1iv1t" path="res://scenes/finish_line/end_trophy.tscn" id="15_8ubwc"]
 [ext_resource type="PackedScene" uid="uid://cbe4w0di5anq4" path="res://scenes/finish_line/finish_level.tscn" id="17_121n3"]
 [ext_resource type="Script" path="res://scripts/label_points.gd" id="17_upibd"]
 [ext_resource type="Script" path="res://scripts/collectables/breakable_box/breakable_box.gd" id="18_5pmhn"]
-[ext_resource type="PackedScene" uid="uid://bwlcubo5mxghv" path="res://scenes/traps/saw.tscn" id="19_h6wbd"]
 [ext_resource type="Script" path="res://scripts/label_lives.gd" id="20_naavv"]
 
 [sub_resource type="GDScript" id="GDScript_c8iqv"]
@@ -193,6 +193,7 @@ metadata/_edit_lock_ = true
 [node name="VirtualGuy" parent="SceneObjects" instance=ExtResource("12_se8y4")]
 position = Vector2(145, 576)
 slide_on_ceiling = false
+metadata/_edit_lock_ = true
 
 [node name="Traps" type="Node" parent="SceneObjects"]
 
@@ -208,10 +209,11 @@ scale = Vector2(2, 2)
 character = NodePath("../../VirtualGuy")
 metadata/_edit_lock_ = true
 
-[node name="Saw" parent="SceneObjects/Traps" node_paths=PackedStringArray("character") instance=ExtResource("19_h6wbd")]
-position = Vector2(1994, 586)
-scale = Vector2(2, 2)
+[node name="Saw3" parent="SceneObjects/Traps" node_paths=PackedStringArray("character") instance=ExtResource("14_i0nj2")]
+position = Vector2(1729, 574)
+scale = Vector2(2.5, 2.5)
 character = NodePath("../../VirtualGuy")
+metadata/_edit_lock_ = true
 
 [node name="Collectables" type="Node" parent="SceneObjects"]
 

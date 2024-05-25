@@ -2,8 +2,8 @@ class_name VirtualGuy
 
 extends BaseCharacter
 
-@onready var game_manager = $"../../GameManager"
-@onready var player_attributes = $"../../PlayerAttributes"
+@onready var game_manager: GameManager = get_node("/root/Root/GameManager")
+@onready var player_attributes = get_node("/root/PlayerAttributes")
 @onready var sprite_2d = $Sprite2D
 @onready var input_handler: InputHandler = $InputHandler
 

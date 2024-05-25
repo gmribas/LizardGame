@@ -2,7 +2,7 @@ class_name DefaultCollectableState
 
 extends CollectableState
 
-@onready var game_manager: GameManager = $"../../../../../GameManager"
+@onready var game_manager: GameManager = get_node("/root/Root/GameManager")
 @export var collected_state: State
 
 func enter(_msg := {}) -> void:

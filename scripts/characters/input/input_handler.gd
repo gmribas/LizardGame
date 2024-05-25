@@ -3,7 +3,7 @@ class_name InputHandler
 extends Node
 
 @onready var sprite_2d = $"../Sprite2D"
-@onready var game_manager = $"../../../GameManager"
+@onready var game_manager: GameManager = get_node("/root/Root/GameManager")
 @onready var state_machine: StateMachine = $"../StateMachine"
 
 var character: BaseCharacter

@@ -14,7 +14,7 @@ const ANIMATION = "jumping"
 @onready var fall_gravity: float= ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
 
 @onready var sprite_2d = $"../../Sprite2D"
-@onready var player_attributes = $"../../../../PlayerAttributes"
+@onready var player_attributes = get_node("/root/PlayerAttributes")
 
 func get_gravity() -> float: 
 	return jump_gravity if character.velocity.y < 0.0 else fall_gravity

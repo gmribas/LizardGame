@@ -3,7 +3,7 @@ class_name FinishedTrophyState
 extends TrophyState
 
 @onready var trophySprite = %Trophy
-@onready var game_manager: GameManager = $"../../../../GameManager"
+@onready var game_manager: GameManager = get_node("/root/Root/GameManager")
 
 const ANIMATION = "finished"
 

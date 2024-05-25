@@ -193,8 +193,9 @@ state_machine = NodePath("StateMachine")
 unique_name_in_owner = true
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_h8kwe")
-animation = &"collected"
 autoplay = "default"
+frame = 3
+frame_progress = 0.496501
 script = ExtResource("4_4ir57")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -221,5 +222,5 @@ state_name = "CollectedCollectableState"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_looped" from="Kiwi2D" to="." method="_on_kiwi_2d_animation_looped"]
-[connection signal="animation_looped" from="Kiwi2D" to="StateMachine/CollectedCollectableState" method="_on_kiwi_2d_animation_looped"]
 [connection signal="animation_looped" from="Kiwi2D" to="Kiwi2D" method="_on_animation_looped"]
+[connection signal="animation_looped" from="Kiwi2D" to="StateMachine/CollectedCollectableState" method="_on_kiwi_2d_animation_looped"]

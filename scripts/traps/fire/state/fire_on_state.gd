@@ -4,7 +4,7 @@ extends FireState
 
 const ANIMATION = "on"
 
-@onready var game_manager = $"../../../../../GameManager"
+@onready var game_manager: GameManager = get_node("/root/Root/GameManager")
 @onready var sprite_2d = $Sprite2D
 
 var character: BaseCharacter
