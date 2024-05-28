@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://vonf6ps58aik"]
 
-[ext_resource type="Script" path="res://scripts/collectables/collectable_kiwi.gd" id="1_5ss0u"]
+[ext_resource type="Script" path="res://scripts/collectables/kiwi/collectable_kiwi.gd" id="1_eorsy"]
 [ext_resource type="Texture2D" uid="uid://ddx4mrdhr0vm5" path="res://assets/collectables/kiwi/collected.png" id="2_605hb"]
 [ext_resource type="Texture2D" uid="uid://cmy4nxjfc8657" path="res://assets/collectables/kiwi/kiwi.png" id="3_jtww3"]
 [ext_resource type="Script" path="res://scripts/collectables/collectable_sprite.gd" id="4_4ir57"]
@@ -186,7 +186,7 @@ animations = [{
 radius = 12.5399
 
 [node name="CollectableKiwi" type="Area2D" node_paths=PackedStringArray("state_machine")]
-script = ExtResource("1_5ss0u")
+script = ExtResource("1_eorsy")
 state_machine = NodePath("StateMachine")
 
 [node name="Kiwi2D" type="AnimatedSprite2D" parent="."]

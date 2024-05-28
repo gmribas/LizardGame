@@ -9,7 +9,5 @@ func enter(_msg := {}) -> void:
 	sprite.animation = animation_name
 
 func body_entered(_body):
-	if (_body is BaseCharacter):	
-		state_machine.transition_to(collected_state.state_name)
-		game_manager.add_points()
-		
+	game_manager.add_points_body_entered(_body, self)
+	state_machine.transition_to(collected_state.state_name)

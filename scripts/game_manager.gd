@@ -8,8 +8,16 @@ var points = 0
 var current_level = Level.new()
 var life = PlayerAttributes.DEFAULT_LIFE
 
-func add_points():
-	points += 1
+func add_points_body_entered(body, item: CollectableState):
+	if body is BaseCharacter:
+		add_points(item.point_value)
+
+func decrement_life_body_entered(body, item: TrapState):
+	if body is BaseCharacter:
+		decrement_life(item.damage)
+
+func add_points(amount):
+	points += amount
 	label_points.show_points(points)
 
 func finish_level():
@@ -19,8 +27,8 @@ func finish_level():
 func is_level_finished():
 	return current_level.state == Level.LevelStates.LEVEL_STATE_FINISHED
 
-func decrement_life():
-	life = life - 1
+func decrement_life(state: TrapState):
+	life -= state.damage
 	label_lives.show_lives(life)
 	
 	if life <= 0:

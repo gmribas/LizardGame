@@ -197,22 +197,19 @@ metadata/_edit_lock_ = true
 
 [node name="Traps" type="Node" parent="SceneObjects"]
 
-[node name="Fire" parent="SceneObjects/Traps" node_paths=PackedStringArray("character") instance=ExtResource("15_7akho")]
+[node name="Fire" parent="SceneObjects/Traps" instance=ExtResource("15_7akho")]
 position = Vector2(891, 591)
 scale = Vector2(2, 2)
-character = NodePath("../../VirtualGuy")
 metadata/_edit_lock_ = true
 
-[node name="Fire2" parent="SceneObjects/Traps" node_paths=PackedStringArray("character") instance=ExtResource("15_7akho")]
+[node name="Fire2" parent="SceneObjects/Traps" instance=ExtResource("15_7akho")]
 position = Vector2(1098, 592)
 scale = Vector2(2, 2)
-character = NodePath("../../VirtualGuy")
 metadata/_edit_lock_ = true
 
-[node name="Saw3" parent="SceneObjects/Traps" node_paths=PackedStringArray("character") instance=ExtResource("14_i0nj2")]
+[node name="Saw3" parent="SceneObjects/Traps" instance=ExtResource("14_i0nj2")]
 position = Vector2(1729, 574)
 scale = Vector2(2.5, 2.5)
-character = NodePath("../../VirtualGuy")
 metadata/_edit_lock_ = true
 
 [node name="Collectables" type="Node" parent="SceneObjects"]

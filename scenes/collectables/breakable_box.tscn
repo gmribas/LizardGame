@@ -3,11 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://dng4je34x5jgh" path="res://assets/collectables/box/box_break.png" id="1_nkwmf"]
 [ext_resource type="Texture2D" uid="uid://il0r34nvf1l" path="res://assets/collectables/box/box_hit.png" id="2_dv54l"]
 [ext_resource type="Texture2D" uid="uid://csyladymy1yka" path="res://assets/collectables/box/box_idle.png" id="2_gejq6"]
-[ext_resource type="Script" path="res://scripts/collectables/kiwi.gd" id="4_mbuk1"]
 [ext_resource type="Script" path="res://scripts/base/state_machine.gd" id="5_t7myr"]
 [ext_resource type="Script" path="res://scripts/collectables/state/default_state.gd" id="6_r8fia"]
 [ext_resource type="Script" path="res://scripts/collectables/breakable_box/state/breakable_box_break_state.gd" id="7_qad48"]
 [ext_resource type="Script" path="res://scripts/collectables/state/collected_state.gd" id="7_qw5ef"]
+[ext_resource type="Script" path="res://scripts/collectables/breakable_box/state/breakable_box_prize_state.gd" id="8_eli85"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8powo"]
 atlas = ExtResource("1_nkwmf")
@@ -93,7 +93,6 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_m6kgo")
 animation = &"break"
 autoplay = "idle"
-script = ExtResource("4_mbuk1")
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_v6ksl")
@@ -102,21 +101,25 @@ shape = SubResource("RectangleShape2D_v6ksl")
 script = ExtResource("5_t7myr")
 initial_state = NodePath("DefaultCollectableState")
 
-[node name="DefaultCollectableState" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite", "collected_state")]
+[node name="DefaultCollectableState" type="Node" parent="StateMachine" node_paths=PackedStringArray("collected_state", "sprite")]
 script = ExtResource("6_r8fia")
-animation_name = "idle"
-sprite = NodePath("../../sprite")
 collected_state = NodePath("../CollectedCollectableState")
-
-[node name="CollectedCollectableState" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite", "after_collected_state")]
-script = ExtResource("7_qw5ef")
-animation_name = "hit"
 sprite = NodePath("../../sprite")
+animation_name = "idle"
+
+[node name="CollectedCollectableState" type="Node" parent="StateMachine" node_paths=PackedStringArray("after_collected_state", "sprite")]
+script = ExtResource("7_qw5ef")
 after_collected_state = NodePath("../BrealableBoxBreakState")
+sprite = NodePath("../../sprite")
+animation_name = "hit"
 state_name = "CollectedCollectableState"
 
-[node name="BrealableBoxBreakState" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite")]
+[node name="BrealableBoxBreakState" type="Node" parent="StateMachine" node_paths=PackedStringArray("hidden_prize", "sprite")]
 script = ExtResource("7_qad48")
-animation_name = "break"
+hidden_prize = NodePath("../BrealableBoxPrizeState")
 sprite = NodePath("../../sprite")
+animation_name = "break"
 state_name = "BrealableBoxBreakState"
+
+[node name="BrealableBoxPrizeState" type="Node" parent="StateMachine"]
+script = ExtResource("8_eli85")

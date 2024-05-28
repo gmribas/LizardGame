@@ -4,7 +4,7 @@ extends Area2D
 
 signal animation_looped()
 
-@export var game_manager: GameManager
+@onready var game_manager: GameManager = get_node("/root/Root/GameManager")
 @export var state_machine: StateMachine
 
 func _on_body_entered(body):

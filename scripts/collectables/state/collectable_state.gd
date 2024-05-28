@@ -1,13 +1,9 @@
 class_name CollectableState
 extends State
 
-enum CollectableStateEnum {
-	DEFAULT,
-	FINISHED
-}
-
 @export var sprite: CollectableSprite
 @export var animation_name: String
+@export var point_value = 1
 
 var collectable: Collectable
 

@@ -1,10 +1,5 @@
 class_name FireState
-extends State
-
-enum FireStateEnum {
-	ON,
-	OFF
-}
+extends TrapState
 
 var fire_trap: FireTrap
 

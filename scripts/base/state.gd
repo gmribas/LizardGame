@@ -2,7 +2,7 @@
 class_name State
 extends Node
 
-@export var state_name: String
+var state_name: String = self.name
 
 # Reference to the state machine, to call its `transition_to()` method directly.
 # That's one unorthodox detail of our state implementation, as it adds a dependency between the

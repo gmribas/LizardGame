@@ -8,6 +8,7 @@ const SAW_RANGE_OF_MOTION = 700
 
 @export var move_speed : float = 120.0
 @export var character: BaseCharacter
+@export var state_machine: StateMachine
 
 var already_moved = false
 
@@ -30,6 +31,4 @@ func check_if_player_in_range(delta):
 		translate(calculate_motion)
 
 func _on_body_entered(_body):
-	if (_body == character):
-		game_manager.decrement_life()
-		queue_free()
+	state_machine._on_body_entered(_body)

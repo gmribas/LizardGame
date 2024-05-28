@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://r3jom7elntf2"]
+[gd_scene load_steps=13 format=3 uid="uid://r3jom7elntf2"]
 
 [ext_resource type="Script" path="res://scripts/traps/fire/fire.gd" id="1_62515"]
 [ext_resource type="Texture2D" uid="uid://2ciple26bgu4" path="res://assets/traps/fire_on.png" id="1_e6n3e"]
 [ext_resource type="Texture2D" uid="uid://c1w2hdauxpwpa" path="res://assets/traps/fire_off.png" id="2_lfmle"]
+[ext_resource type="Script" path="res://scripts/base/state_machine.gd" id="4_laghp"]
+[ext_resource type="Script" path="res://scripts/traps/fire/state/fire_off_state.gd" id="5_mjl0o"]
+[ext_resource type="Script" path="res://scripts/traps/fire/state/fire_on_state.gd" id="6_f525e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wkr4v"]
 atlas = ExtResource("2_lfmle")
@@ -47,8 +50,9 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n14ib"]
 
-[node name="Fire" type="Area2D"]
+[node name="Fire" type="Area2D" node_paths=PackedStringArray("state_machine")]
 script = ExtResource("1_62515")
+state_machine = NodePath("StateMachine")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -58,5 +62,17 @@ autoplay = "on"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_n14ib")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_laghp")
+initial_state = NodePath("FireOnState")
+
+[node name="FireOffState" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite")]
+script = ExtResource("5_mjl0o")
+sprite = NodePath("../../Sprite2D")
+
+[node name="FireOnState" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite")]
+script = ExtResource("6_f525e")
+sprite = NodePath("../../Sprite2D")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
